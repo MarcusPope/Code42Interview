@@ -6,18 +6,13 @@ framework. Examples include but are not limited to: React, Ember.js, Vue.js. In
 addition, leverage an HTTP client library, such as jQuery.ajax, github/fetch, or
 what's included within your framework.
 
-@note: Outline primary development tasks from requirements
-
-@note: Setup development environment, github project and pwnn tracker
-@note: Update node and npm dependencies to latest lts version
-@note: Install react's create app package
-
+@note: Fixed bug with IE11, browser reports Object.assign is not defined.
+    @note: Despite plenty of reports indicating babel-polyfill would suffice, it did not and I had to rely on a manual polyfill in the dom itself.
+    @note: Finally found the right ticket, IE11 is no longer supported despite what the current docs and many other tickets report :/
+    
 @todo: Review Github's API docs
 
 @todo: Register for Github API key
-
-@todo: Create basic react application
-    @req: For this single page app, create a sidebar and main content areas. This is a typical master-detail view application.
     
 @todo: Configure oAuth connection for Github
 
