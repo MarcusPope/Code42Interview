@@ -1,0 +1,9 @@
+# Ignore windows/ide stuff
+Thumbs.db
+*.komodoproject
+
+# NPM
+node_modules/
+
+# PWNN Tracker
+pwnn.conf
