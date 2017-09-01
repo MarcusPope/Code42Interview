@@ -6,16 +6,11 @@ framework. Examples include but are not limited to: React, Ember.js, Vue.js. In
 addition, leverage an HTTP client library, such as jQuery.ajax, github/fetch, or
 what's included within your framework.
 
-@: Review Github's API docs
-@: Register for Github API key
-@note: Used personal access token for account access instead.
-@note: Documented API Endpoints for each profile data requirement
-
-@todo: Embed bootstrap, fetch, font-awesome
+@todo: Embed bootstrap, fetch
 
 @todo: Build left sidebar component to display dev list
     @todo: Flesh out CSS for sidebar
-    @todo: Implement waiting throbber with fa-spinner
+    @todo: Implement waiting spinner with fast-right-spinner
     
 @todo: Wire up developer list in sidebar
     @req: In the sidebar, list each member of the Code42 organization using the public Github API.
