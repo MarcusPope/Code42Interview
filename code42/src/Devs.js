@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 function Devs(props) {
     return (
-        <li>
+        <li className="selectable">
             {/* @todo: probably need to update href once we figure out how routing works */}
             <a href="javascript:;" onClick={props.onClick}>
                 {props.name}
