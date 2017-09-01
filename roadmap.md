@@ -6,10 +6,6 @@ framework. Examples include but are not limited to: React, Ember.js, Vue.js. In
 addition, leverage an HTTP client library, such as jQuery.ajax, github/fetch, or
 what's included within your framework.
 
-@todo: Embed bootstrap, fetch
-
-@todo: Build left sidebar component to display dev list
-    @todo: Flesh out CSS for sidebar
     @todo: Implement waiting spinner with fast-right-spinner
     
 @todo: Wire up developer list in sidebar

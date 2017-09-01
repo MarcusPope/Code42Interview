@@ -1,24 +1,19 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
+body { background: linear-gradient(to right,  #00C4E1, #00E39F); }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
+.c42-header { background-color: #000; padding: 20px; color: white; }
+.c42-header img { animation: React-logo-spin infinite 20s linear; height: 40px; margin-top: -15px;  }
+.c42-header h2 { display: inline-block; margin: 10px 0 10px 20px; }
 
-.App-intro {
-  font-size: large;
-}
+.c42-intro { font-size: large; padding-top: 20px; max-width: 600px; }
 
-@keyframes App-logo-spin {
+.c42-developers { padding-top: 15px; background-color: #222; height: calc(100vh - 93px) !important; }
+.c42-developers a { color: white; }
+.c42-developers .active a { font-weight: bold !important; background-color: #eee; color: #23527c; }
+
+div.c42-profile { padding: 15px 15px 15px 50px; }
+
+@keyframes React-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
