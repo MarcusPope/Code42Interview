@@ -6,14 +6,14 @@ framework. Examples include but are not limited to: React, Ember.js, Vue.js. In
 addition, leverage an HTTP client library, such as jQuery.ajax, github/fetch, or
 what's included within your framework.
 
-    @todo: Implement waiting spinner with fast-right-spinner
-    
-@todo: Wire up developer list in sidebar
-    @req: In the sidebar, list each member of the Code42 organization using the public Github API.
+@done: Debugged authorization issue with Github API via Fetch
+@done: Reviewed fetch api docs
 
-    @todo: On selection make a request to Github API for user specific data
-        @todo: Render fa spinner during request
-        @todo: Handle errors with a basic template
+@todo: On selection make a request to Github API for user specific data
+    @: We can prepop most of the basic data from the members response
+    @todo: Handle errors with a basic template
+
+@bug: Fix overflow issue in sidebar on small viewports
 
 @todo: Build main content view on the right for developer profile information
     @req: When you click on a member in the sidebar, the main content area should populate with that person's information.

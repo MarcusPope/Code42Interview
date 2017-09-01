@@ -10,7 +10,16 @@
 
         git clone https://github.com/MarcusPope/Code42Interview.git
 
-    Install the Node v4 or later.  Developmed with 6.11.2
+    Install the Node v4 or later.  Developed with 6.11.2.
+    
+    Add your Github API Token to the file: /code42/src/creds.json
+    
+    {
+        "user": "GITHUB LOGIN",
+        "token": "API TOKEN"
+    }
+    
+    You can generate a token here: https://github.com/settings/tokens
 
 ## Starting the application
 
