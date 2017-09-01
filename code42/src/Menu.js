@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Devs from './Devs.js';
 import creds from './creds.json';
+import { Link } from 'react-router-dom';
 
 class Menu extends Component {
 
@@ -86,10 +87,12 @@ class Menu extends Component {
                 <ul className="nav" onClick={this.selectItem.bind(this)}>
 
                     <li className="selectable active">
-                        <a href="#home" id="homeMenu">
+                        {/* @future: use NavLink instead to access className sync feature
+                          * @ref: https://reacttraining.com/react-router/web/api/NavLink/activeClassName-string */}
+                        <Link to="/" id="homeMenu">
                             Home
                             <span className="pull-right glyphicon glyphicon-home"></span>
-                        </a>
+                        </Link>
                     </li>
 
                     <li className="toggleable">
@@ -104,6 +107,7 @@ class Menu extends Component {
                             {(this.state.devs || []).map((user) => {
                                 return <Devs
                                     name={user.name}
+                                    id={user.id}
                                     onClick={(e) => this.props.loadProfile(e, user)}
                                     key={user.id}
                                 />;

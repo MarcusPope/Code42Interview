@@ -6,8 +6,8 @@ framework. Examples include but are not limited to: React, Ember.js, Vue.js. In
 addition, leverage an HTTP client library, such as jQuery.ajax, github/fetch, or
 what's included within your framework.
 
-@done: Debugged authorization issue with Github API via Fetch
-@done: Reviewed fetch api docs
+@done: Reviewed React Router docs
+@done: Implemented routing for Home
 
 @todo: On selection make a request to Github API for user specific data
     @: We can prepop most of the basic data from the members response
@@ -32,8 +32,6 @@ what's included within your framework.
             @RFC: Should this include repos they are not members of? Or just a filter of their repositories for active commits?
             @: We could query the events api and check at least the last 90 days of activity
             @: According to several sources this isn't really accessible from the github api
-
-@todo: Implement BrowserHistory logic for react router
 
 @todo: Develop a simple test plan for the data sources
     @: This is extra credit so just describe what points should be tested and how if we don't get to it in time
