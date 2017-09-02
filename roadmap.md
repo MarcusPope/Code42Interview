@@ -1,37 +1,19 @@
 
 # Senior Web Engineer exercise
 
-@overview: Create a single page application using a modern JavaScript library or
-framework. Examples include but are not limited to: React, Ember.js, Vue.js. In
-addition, leverage an HTTP client library, such as jQuery.ajax, github/fetch, or
-what's included within your framework.
-
-@done: Reviewed React Router docs
-@done: Implemented routing for Home
-
-@todo: On selection make a request to Github API for user specific data
-    @: We can prepop most of the basic data from the members response
-    @todo: Handle errors with a basic template
-
 @bug: Fix overflow issue in sidebar on small viewports
+@bug: Fix responsive breakpoint for sidebar on tablet to be height: auto
+@bug: Refresh on developers page doesn't load proper state for navbar
+@bug: Clicking on down arrow toggles accordion but not the arrow direction
+@bug: Refresh doesn't handle loss of state very well, either persist to session storage or redirect to home
 
-@todo: Build main content view on the right for developer profile information
-    @req: When you click on a member in the sidebar, the main content area should populate with that person's information.
-
-    @todo: Render the following data points in the main profile view
-        @: Their Github image
-        @: A list of their repos
-        @: Their public location
-        @: Their public email
-        @: Their join date
-
-    @extra: Render Additional details for each Code42 Member
-        @: Their total number of contributions in the last year
-        @: The organizations to which they belong
-        @: A list of repos they have contributed to
-            @RFC: Should this include repos they are not members of? Or just a filter of their repositories for active commits?
-            @: We could query the events api and check at least the last 90 days of activity
-            @: According to several sources this isn't really accessible from the github api
+@extra: Render Additional details for each Code42 Member
+    @: Their total number of contributions in the last year
+    @: The organizations to which they belong
+    @: A list of repos they have contributed to
+        @RFC: Should this include repos they are not members of? Or just a filter of their repositories for active commits?
+        @: We could query the events api and check at least the last 90 days of activity
+        @: According to several sources this isn't really accessible from the github api
 
 @todo: Develop a simple test plan for the data sources
     @: This is extra credit so just describe what points should be tested and how if we don't get to it in time

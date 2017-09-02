@@ -17,8 +17,14 @@ body { background: linear-gradient(to right,  #00C4E1, #00E39F); }
 .c42-developers li.expanded:not(.selectable) a,
 .c42-developers li:not(.selectable) a:hover { font-weight: bold; }
 
-div.c42-profile { padding: 15px 15px 15px 50px; }
+div.c42-main { padding: 15px 15px 15px 50px; }
 
+.c42-profile { position: relative; padding-top: 20px; }
+.c42-profile img { display: inline-block; max-width: 160px; border-radius: 50%; border: 0px solid white; border-color: #ccc; box-shadow: 5px 5px 20px rgba(0,0,0,.5); }
+.c42-profile h1 { display: inline-block; font-size: 4em; margin-left: 40px; vertical-align: middle; text-shadow: 5px 5px 20px rgba(0,0,0,.5); }
+.c42-profile .c42-card { text-align: center; max-width: 160px; padding-top: 25px; }
+
+.c42-profile .c42-repos { position: absolute; top: 190px; left: 210px; }
 .glyphicon-repeat { animation: spin infinite 1s linear; }
 
 @keyframes spin {

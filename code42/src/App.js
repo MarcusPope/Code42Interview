@@ -7,14 +7,9 @@ import {
 } from 'react-router-dom';
 
 import Menu from './Menu.js';
+import Profile from'./Profile.js';
 
 class App extends Component {
-
-    loadProfile(e, user) {
-        //@todo: Populate the initial profile view with user data
-        console.log(user.name);
-    }
-
     render() {
         return (
             <Router>
@@ -24,9 +19,12 @@ class App extends Component {
                         <h2>Code42 Developer Profiles</h2>
                     </div>
     
-                    <Menu loadProfile={this.loadProfile} />
+                    <Menu />
     
-                    <Route exact path="/" component={Home} />
+                    <div className="col-md-10 c42-main">
+                        <Route exact path="/" component={Home} />
+                        <Route exact path="/developer/:id" component={Profile} />
+                    </div>
                 </div>
             </Router>
         );
@@ -34,14 +32,14 @@ class App extends Component {
 }
 
 const Home = () => (
-    <div className="c42-profile col-md-10">
+    <div>
         <h1>Meet the team @ Code42</h1>
         <p className="c42-intro">
             On your left is a list of the developers on the Code42
             Github profile. Select a name to view more about their
             contributions to the Code42 team.
         </p>
-    </div>        
+    </div>
 )
 
 export default App;

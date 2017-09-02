@@ -33,9 +33,7 @@ class Menu extends Component {
                 devs: res.map((member) => {
                     return {
                         id: member.id,
-                        avatar: member.avatar_url,
                         name: member.login,
-                        profile: member.url,
                     };
                 })
             });
@@ -44,7 +42,7 @@ class Menu extends Component {
             //@todo: render message in sidebar about API issues
             console.log("Error: ", err);
         })
-        .finally(() => {
+        .then(() => {
             //let ui show busy state before we expand
             setTimeout(() => {
 
@@ -80,7 +78,7 @@ class Menu extends Component {
             global.$('#devMenu span').toggleClass('glyphicon-menu-up');
         }
     }
-
+    
     render() {
         return (
             <div className="c42-developers row col-md-2">
@@ -96,7 +94,7 @@ class Menu extends Component {
                     </li>
 
                     <li className="toggleable">
-                        <a href="javascript:;" data-toggle="collapse" data-target="#userList" id="devMenu">
+                        <a href="/" data-toggle="collapse" data-target="#userList" id="devMenu" onClick={e => e.preventDefault()}>
                             Developers
                             <span className="pull-right glyphicon glyphicon-repeat"></span>
                         </a>
@@ -108,7 +106,6 @@ class Menu extends Component {
                                 return <Devs
                                     name={user.name}
                                     id={user.id}
-                                    onClick={(e) => this.props.loadProfile(e, user)}
                                     key={user.id}
                                 />;
                             })}
