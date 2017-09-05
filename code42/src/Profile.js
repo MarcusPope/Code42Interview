@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import creds from './creds.json';
+import Repos from './Repos.js';
+import Orgs from './Orgs.js';
+import { GitReq } from './GithubAPIHelper.js';
 
 class Profile extends Component {
 
@@ -7,52 +9,61 @@ class Profile extends Component {
         super();
         this.state = { user: {} };
     }
-    
+
     componentDidMount() {
         this.updateUserProfile(this.props.location);
     }
-    
+
     shouldComponentUpdate(nextProps, nextState) {
 
         if (this.props.location.pathname !== nextProps.location.pathname) {
             this.updateUserProfile(nextProps.location);
-            return false; 
+            return false;
         }
 
         return true;
     }
-    
+
     updateUserProfile(user) {
-        
-        //@todo: lookup user name from map, not last storage item
-        fetch("https://api.github.com/users/" + user.userName, {
-            method: "GET",
-            headers: {
-                'Authorization': 'Basic ' + btoa([creds.user, creds.token].join(":")),
-            }
-        })
+
+        GitReq([
+            "https://api.github.com/users/" + user.userName,
+            "https://api.github.com/users/" + user.userName + "/repos",
+            "https://api.github.com/users/" + user.userName + "/orgs",
+        ])
         .then((res) => {
-            if (res.ok) {
-                return res.json();
-            }
-            throw new Error(res.statusText);
-        })
-        .then((res) => {
-            
+
             console.log(res);
-            
+
+            var basic = res[0];
+
             this.setState({
                 user: {
                     id: user.userId,
-                    avatar: res.avatar_url,
-                    name: res.name,
-                    profile_api: res.url,
-                    profile_link: res.html_url,
-                    repos_api: res.repos_url,
-                    location: res.location,
-                    since: res.created_at,
-                    email: res.email,
-                }
+                    avatar: basic.avatar_url,
+                    name: basic.name,
+                    profile_api: basic.url,
+                    profile_link: basic.html_url,
+                    repos_api: basic.repos_url,
+                    location: basic.location,
+                    since: basic.created_at,
+                    email: basic.email,
+                },
+                repos: res[1].map((repo) => {
+                    return {
+                        id: repo.id,
+                        name: repo.name,
+                        description: repo.description,
+                        language: repo.language
+                    };
+                }),
+                orgs: res[2].map((org) => {
+                    return {
+                        id: org.id,
+                        avatar: org.avatar_url,
+                        name: org.login,
+                    };
+                }),
             });
         })
         .catch((err) => {
@@ -60,9 +71,9 @@ class Profile extends Component {
             console.log("Error: ", err);
         })
     }
-    
+
     render() {
-        
+
         return (
             <div className="c42-profile">
                 <img alt={this.state.user.name} src={this.state.user.avatar} />
@@ -74,8 +85,27 @@ class Profile extends Component {
                 </div>
                 <div className="c42-repos">
                     <h2>Repositories</h2>
-                    
-                    {/* @todo: render list of repositories */}
+
+                    {(this.state.repos || []).map((repo) => {
+                        return <Repos
+                            id={repo.id}
+                            key={repo.id}
+                            name={repo.name}
+                            lang={repo.language}
+                            desc={repo.description}
+                        />;
+                    })}
+                </div>
+                <div className="c42-orgs">
+                    <h2>Organizations</h2>
+                    {(this.state.orgs || []).map((org) => {
+                        return <Orgs
+                            id={org.id}
+                            key={org.id}
+                            name={org.name}
+                            avatar={org.avatar}
+                        />;
+                    })}
                 </div>
             </div>
         );

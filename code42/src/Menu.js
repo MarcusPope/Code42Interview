@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Devs from './Devs.js';
-import creds from './creds.json';
 import { Link } from 'react-router-dom';
+import { GitReq } from './GithubAPIHelper.js';
 
 class Menu extends Component {
 
@@ -11,26 +11,17 @@ class Menu extends Component {
         this.state = {};
 
         //Populate initial state with members request
-        fetch("https://api.github.com/orgs/code42/members", {
-            method: "GET",
-            headers: {
-                'Authorization': 'Basic ' + btoa([creds.user, creds.token].join(":")),
-            }
-        })
-        .then((res) => {
-            if (res.ok) {
-                return res.json();
-            }
-            throw new Error(res.statusText);
-        })
+        GitReq(["https://api.github.com/orgs/code42/members"])
         .then((res) => {
 
-            if (!res.length) {
+            var devs = res[0];
+
+            if (!devs.length) {
                 throw new Error("No Results");
             }
 
             this.setState({
-                devs: res.map((member) => {
+                devs: devs.map((member) => {
                     return {
                         id: member.id,
                         name: member.login,
@@ -78,7 +69,7 @@ class Menu extends Component {
             global.$('#devMenu span').toggleClass('glyphicon-menu-up');
         }
     }
-    
+
     render() {
         return (
             <div className="c42-developers row col-md-2">
