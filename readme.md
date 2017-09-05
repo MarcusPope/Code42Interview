@@ -2,7 +2,7 @@
 
 ## Stack
 
-    Code42Interview is built with React 15.6.1, ExpressJS and Node
+    Code42Interview is built with React 15.6.1, Node 6.11.2
 
 ## Getting Started
 
@@ -10,7 +10,7 @@
 
         git clone https://github.com/MarcusPope/Code42Interview.git
 
-    Install the Node v4 or later.  Developed with 6.11.2.
+    Install the Node v4 or later.
     
     Add your Github API Token to the file: /code42/src/creds.json
     
@@ -65,6 +65,4 @@
         Strategy 2: (meets requirements)
             Iterate over every repo and query for the following
             api.github.com/repos/:user/:repoName/commits?author=:user&since=:ISO8601&page=:pageIdx&per_page=100
-
-    Orgs Memberships: https://api.github.com/users/ZuluForce/orgs
 

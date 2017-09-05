@@ -30,7 +30,7 @@ class Menu extends Component {
             });
         })
         .catch((err) => {
-            //@todo: render message in sidebar about API issues
+            //@future: render message in sidebar about API issues
             console.log("Error: ", err);
         })
         .then(() => {
@@ -52,7 +52,7 @@ class Menu extends Component {
 
     selectItem(e) {
 
-        var parent = e.target.parentElement;
+        var parent = global.$(e.target).closest('li a')[0].parentElement;
         var cls = parent.classList;
 
         //only let selection state apply to certain elements

@@ -67,7 +67,7 @@ class Profile extends Component {
             });
         })
         .catch((err) => {
-            //@todo: render error message
+            //@future: render error message
             console.log("Error: ", err);
         })
     }
